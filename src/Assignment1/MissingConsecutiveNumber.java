@@ -3,12 +3,12 @@ package Assignment1;
 public class MissingConsecutiveNumber {
 
     // Function to return the missing element
-    public static int missingNumber(int arr[], int n ){
+    public static int missingNumber(int[] arr, int n ){
         int i=0, h=n-1;
         int mid;
 
-        while (h>1) {
-            mid = 1+(h-1)/2;
+        while (h>i) {
+            mid = i+(h-i)/2;
 
             // Check if middle element is consistent
             if (arr[mid] - mid == arr[0]) {
@@ -46,9 +46,9 @@ public class MissingConsecutiveNumber {
     }
 
     public static void main(String[] args) {
-        int arr[] = {1,2,3,4,5,7,8,9};
+        int arr[] = {1,2,3,4,5,6,7,8,9,10};
         int n =arr.length;
-
+        System.out.println(arr.length);
         System.out.println(missingNumber(arr,n));
     }
 }
