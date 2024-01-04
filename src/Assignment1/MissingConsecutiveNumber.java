@@ -4,11 +4,13 @@ public class MissingConsecutiveNumber {
 
     // Function to return the missing element
     public static int missingNumber(int[] arr, int n ){
-        int i=0, h=n-1;
+        int low=0, high=n-1;
         int mid;
 
-        while (h>i) {
-            mid = i+(h-i)/2;
+        //BINARY SEARCH
+        while (high>low) {
+            mid = low+(high-low)/2;
+
 
             // Check if middle element is consistent
             if (arr[mid] - mid == arr[0]) {
@@ -21,7 +23,7 @@ public class MissingConsecutiveNumber {
                 else{
 
                     // Move right
-                    i=mid+1;
+                    low=mid+1;
                 }
 
             }
@@ -36,7 +38,7 @@ public class MissingConsecutiveNumber {
                 else{
 
                     // Move left
-                    h=mid-1;
+                    high=mid-1;
                 }
             }
         }
@@ -46,7 +48,7 @@ public class MissingConsecutiveNumber {
     }
 
     public static void main(String[] args) {
-        int arr[] = {1,2,3,4,5,6,7,8,9,10};
+        int[] arr = {-3,-1,0,1,2,3,4,5,6,7,8,9,10};
         int n =arr.length;
         System.out.println(arr.length);
         System.out.println(missingNumber(arr,n));
